@@ -5,9 +5,12 @@ const HouseBackground = () => {
   const { data: service = [], isLoading } = useQuery({
     queryKey: ['services'],
     queryFn: async () => {
-      const response = await fetch('     http://localhost:4000/service', {
-        headers: {},
-      });
+      const response = await fetch(
+        '     https://stay-cation-server.vercel.app/service',
+        {
+          headers: {},
+        }
+      );
       return response.json();
     },
   });
