@@ -28,25 +28,45 @@ const MostPopuler = () => {
   console.log(service);
   if (isLoading) return <Loading />;
   return (
-    <section className="   flex justify-center items-center    ">
-      <div className="    grid grid-cols-4 gap-4  px-4 py-4   w-[1100px]  ">
+    <section className="container m-auto ">
+      <h3 className=" text-3xl my-4  text-accent font-bold">Most Picked</h3>
+      <div className="  grid grid-cols-3 gap-4 ">
         {service.slice(0, 5).map((item) => {
-          const { thumbnail, _id, isBig, price, title, location } = item;
+          const {
+            beautyBackyard,
+            isPopular,
+            isSuperHost,
+            kitchen,
+            kitchenTitle,
+            LivingRoom,
+            location,
+            price,
+            rating,
+            thumbnail,
+            isBig,
+            title,
+            _id,
+          } = item;
           return (
             <div
-              className={`${
-                isBig ? '  row-span-2 col-span-2 ' : '     '
-              }   relative `}
+              key={_id}
+              className={`${isBig ? '  row-span-2     ' : ''} relative`}
             >
+              {' '}
               <img
                 src={thumbnail}
-                className="   h-[100%] w-[100%]  object-cover  rounded-xl  "
+                className={` ${isBig ? 'h-full' : 'h-96'} w-full  rounded-lg`}
                 alt=""
               />
-              <div className=" w-1/2 top-0  right-0 rounded-bl-3xl bg-secondary h-10   rounded-tr-xl  flex justify-center items-center  absolute">
-                <h2 className={`text-white ${isBig ? 'text-xl' : 'text-sm '} `}>
-                  <span className=" font-mono ">${price}</span> per night
-                </h2>
+              <div className="absolute   bottom-0">
+                <h1 className="text-white text-2xl font-semibold">{title}</h1>
+                <h1 className="text-white ">{location}</h1>
+              </div>
+              <div className="  rounded-bl-full    rounded-tr-[180rem]   absolute top-0  bg-secondary w-1/2 right-0  h-10 justify-center items-center flex">
+                <h1 className="  text-white text-sm ">
+                  <span className="   font-semibold">${price}</span>
+                  <span> per night</span>
+                </h1>
               </div>
             </div>
           );
