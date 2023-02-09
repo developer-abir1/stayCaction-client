@@ -4,7 +4,7 @@ import images from '../../../utils/images/images';
 
 const Header = () => {
   return (
-    <section className="hero min-h-screen  ">
+    <section className="hero    ">
       <div className="hero-content flex-col lg:flex-row-reverse lg:px-24 ">
         <div className="   relative">
           <img
