@@ -13,11 +13,9 @@ const MostPopuler = () => {
   const { data: service = [], isLoading } = useQuery({
     queryKey: ['services'],
     queryFn: async () => {
-      const response = await fetch('     http://localhost:3000/services', {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-        },
-      });
+      const response = await fetch(
+        ' https://stay-cation-server.vercel.app/services'
+      );
       return response.json();
     },
   });

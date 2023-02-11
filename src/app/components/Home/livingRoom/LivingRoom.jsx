@@ -1,33 +1,35 @@
 import { useQuery } from '@tanstack/react-query';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Link } from 'react-router-dom';
+import Loading from '../../../shared/Loading/Loading';
 const LivingRoom = () => {
-  const { data: service = [], isLoading } = useQuery({
+  const {
+    data: service = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ['services'],
     queryFn: async () => {
-      const response = await fetch('   http://localhost:3000/services', {
-        headers: {},
-      });
+      const response = await fetch(
+        'https://stay-cation-server.vercel.app/services'
+      );
+
       return response.json();
     },
   });
+
+  if (isLoading) return <Loading />;
   return (
-    <section
-      className="  container m-auto 
-    "
-    >
+    <section className="  container m-auto    ">
       <h2 className=" text-3xl my-16  text-accent font-bold">
         Hotels with single/large living room
       </h2>
 
       <Swiper
-        className="    "
         slidesPerView={1}
         spaceBetween={10}
         breakpoints={{
@@ -67,9 +69,9 @@ const LivingRoom = () => {
             _id,
           } = serv;
           return (
-            <SwiperSlide className="  ">
+            <SwiperSlide>
               <Link to={`/hotelDetails/${_id}`}>
-                <div className="  " key={_id}>
+                <div className=" " key={_id}>
                   <img
                     src={kitchen}
                     className="   h-80     object-cover rounded-lg "
