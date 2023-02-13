@@ -9,6 +9,10 @@ import { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 import CalenderModal from '../../shared/CalanderModal/CalenderModal';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../components/AuthContext/AuthProvider';
+
 const HotelDetails = () => {
   const params = useParams();
   const { data: service = [], isLoading } = useQuery({
@@ -20,9 +24,25 @@ const HotelDetails = () => {
       return response.json();
     },
   });
-
   const [count, setCount] = useState(0);
   const [selected, setSelected] = useState(new Date());
+  if (count === 0) {
+    setCount(1);
+  }
+
+  const handleBooking = () => {
+    const data = {
+      totalDay: count,
+      from: selected.from,
+      to: selected.to,
+      price: service.price * count,
+      roomData: {
+        ...service,
+      },
+    };
+
+    localStorage.setItem('bookingInfo', JSON.stringify(data));
+  };
 
   return (
     <section>
@@ -109,15 +129,23 @@ const HotelDetails = () => {
               </h2>
               <div className="flex   justify-between items-center   bg-[#F5F6F8]">
                 <button
-                  onClick={() => setCount(count - 1)}
+                  onClick={() =>
+                    setCount((prev) => {
+                      if (prev > 0) {
+                        return prev - 1;
+                      } else {
+                        return (prev = 0);
+                      }
+                    })
+                  }
                   className="btn bg-[#E74C3C] hover:bg-[#b92818] text-white btn-sm w-12  border-none  "
                 >
                   <AiOutlineMinus size={30} className="     " />
                 </button>
-                <h2>{count} nights</h2>
+                <h1>{count} nights</h1>
 
                 <button
-                  onClick={() => setCount(count + 1)}
+                  onClick={() => setCount((prev) => prev + 1)}
                   className="btn   bg-[#1ABC9C] hover:bg-[#13a58a] text-white btn-sm w-12  border-none  "
                 >
                   <AiOutlinePlus size={30} className="          " />
@@ -153,9 +181,16 @@ const HotelDetails = () => {
                 </span>
               </h2>
               <div className="  flex justify-center">
-                <button className="  btn  btn-primary  text-white  mt-4 ">
-                  Continue to Book
-                </button>
+                <Link to={'/booking'}>
+                  <button
+                    disabled={selected.from && selected.to ? false : true}
+                    onClick={handleBooking}
+                    className="  btn  btn-primary  text-white  mt-4 "
+                  >
+                    {' '}
+                    Continue to Book
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

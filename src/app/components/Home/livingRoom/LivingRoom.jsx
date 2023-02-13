@@ -8,11 +8,11 @@ import { Link } from 'react-router-dom';
 import Loading from '../../../shared/Loading/Loading';
 const LivingRoom = () => {
   const {
-    data: service = [],
+    data: services = [],
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ['services'],
+    queryKey: ['service'],
     queryFn: async () => {
       const response = await fetch(
         'https://stay-cation-server.vercel.app/services'
@@ -52,19 +52,12 @@ const LivingRoom = () => {
         }}
         modules={[Pagination]}
       >
-        {service?.map((serv) => {
+        {services.map((serv) => {
           const {
-            beautyBackyard,
-            isPopular,
-            isSuperHost,
             kitchen,
-            kitchenTitle,
-            LivingRoom,
+
             location,
-            price,
-            rating,
-            thumbnail,
-            isBig,
+
             title,
             _id,
           } = serv;

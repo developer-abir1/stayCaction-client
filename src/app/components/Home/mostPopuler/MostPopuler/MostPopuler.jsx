@@ -10,8 +10,8 @@ import images from '../../../../utils/images/images';
 import { Link } from 'react-router-dom';
 import Loading from '../../../../shared/Loading/Loading';
 const MostPopuler = () => {
-  const { data: service = [], isLoading } = useQuery({
-    queryKey: ['services'],
+  const { data: populer = [], isLoading } = useQuery({
+    queryKey: ['populer'],
     queryFn: async () => {
       const response = await fetch(
         ' https://stay-cation-server.vercel.app/services'
@@ -20,13 +20,12 @@ const MostPopuler = () => {
     },
   });
 
-  console.log(service);
   if (isLoading) return <Loading />;
   return (
     <section className="container m-auto ">
       <h3 className=" text-3xl my-4  text-accent font-bold">Most Picked</h3>
       <div className="  grid md:grid-cols-3  grid-cols-1 gap-4 ">
-        {service?.slice(0, 5).map((item) => {
+        {populer.slice(0, 5).map((item) => {
           const {
             beautyBackyard,
             isPopular,
