@@ -5,7 +5,7 @@ import Navbar from '../../shared/navbar/Navbar';
 
 const MainLayout = () => {
   return (
-    <div className=" flex flex-col justify-between   min-h-screen">
+    <div className=" flex flex-col justify-between    ">
       <Navbar />
       <Outlet />
       <Footer />

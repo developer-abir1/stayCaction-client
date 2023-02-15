@@ -129,14 +129,16 @@ const BookinInfo = ({ setPages, bookingInfo, setBookingInfo }) => {
           >
             Continue to Book
           </button>
-          <button
-            onClick={() => navigat('/')}
-            className=" btn   text-info  w-96  "
-          >
-            Cancel
-          </button>
         </div>
       </form>
+      <div className=" flex justify-center  my-4">
+        <button
+          onClick={() => navigat('/')}
+          className=" btn   text-info  w-96  "
+        >
+          Cancel
+        </button>
+      </div>
     </div>
   );
 };

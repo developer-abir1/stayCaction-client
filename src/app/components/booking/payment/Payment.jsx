@@ -61,15 +61,16 @@ const Payment = ({ setPages, bookingInfo, setBookingInfo, page }) => {
           >
             Payment
           </button>
-          <button
-            disabled={!activeBtn}
-            onClick={() => naviget('/')}
-            className=" btn   text-info  w-96  "
-          >
-            Cancel
-          </button>
         </div>
       </form>
+      <div className=" flex justify-center  my-4">
+        <button
+          onClick={() => naviget('/')}
+          className=" btn   text-info  w-96  "
+        >
+          Cancel
+        </button>
+      </div>
     </div>
   );
 };

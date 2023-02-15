@@ -41,7 +41,7 @@ const Booking = () => {
   return (
     <div>
       <div className=" grid  justify-items-center">
-        <ul className="steps">
+        <ul className="steps   ">
           <li
             className={`step  lg:w-96  ${
               page === 0
