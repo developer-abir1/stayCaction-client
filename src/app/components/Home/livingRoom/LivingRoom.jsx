@@ -54,10 +54,17 @@ const LivingRoom = () => {
       >
         {services.map((serv) => {
           const {
+            beautyBackyard,
+            isPopular,
+            isSuperHost,
             kitchen,
-
+            kitchenTitle,
+            LivingRoom,
             location,
-
+            price,
+            rating,
+            thumbnail,
+            isBig,
             title,
             _id,
           } = serv;
@@ -66,8 +73,8 @@ const LivingRoom = () => {
               <Link to={`/hotelDetails/${_id}`}>
                 <div className=" " key={_id}>
                   <img
-                    src={kitchen}
-                    className="   h-80     object-cover rounded-lg "
+                    src={thumbnail}
+                    className="   h-80  w-full    object-cover rounded-lg "
                     alt=""
                   />
                   <div className=" my-2 ml-3">

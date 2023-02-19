@@ -1,14 +1,7 @@
 import React from 'react';
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query';
-import images from '../../../../utils/images/images';
-import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 import Loading from '../../../../shared/Loading/Loading';
+import { Link } from 'react-router-dom';
 const MostPopuler = () => {
   const { data: populer = [], isLoading } = useQuery({
     queryKey: ['populer'],
@@ -19,7 +12,7 @@ const MostPopuler = () => {
       return response.json();
     },
   });
-
+  console.log(populer);
   if (isLoading) return <Loading />;
   return (
     <section className="container m-auto ">
@@ -46,24 +39,25 @@ const MostPopuler = () => {
               key={_id}
               className={`${isBig ? '  md:row-span-2     ' : ''} relative`}
             >
-              {' '}
-              <img
-                src={thumbnail}
-                className={` ${
-                  isBig ? 'h-96' : 'h-44'
-                } w-full object-cover  rounded-lg`}
-                alt=""
-              />
-              <div className="absolute   bottom-4 left-4">
-                <h1 className="text-white text-2xl font-semibold">{title}</h1>
-                <h1 className="text-white  font-serif">{location}</h1>
-              </div>
-              <div className="  rounded-bl-full    rounded-tr-[180rem]   absolute top-0  bg-secondary w-1/2 right-0  h-10 justify-center items-center flex">
-                <h1 className="  text-white text-sm ">
-                  <span className="   font-semibold">${price}</span>
-                  <span> per night</span>
-                </h1>
-              </div>
+              <Link to={`/hotelDetails/${_id}`}>
+                <img
+                  src={thumbnail}
+                  className={` ${
+                    isBig ? 'h-96' : 'h-44'
+                  } w-full object-cover  rounded-lg`}
+                  alt=""
+                />
+                <div className="absolute   bottom-4 left-4">
+                  <h1 className="text-white text-2xl font-semibold">{title}</h1>
+                  <h1 className="text-white  font-serif">{location}</h1>
+                </div>
+                <div className="  rounded-bl-full    rounded-tr-[180rem]   absolute top-0  bg-secondary w-1/2 right-0  h-10 justify-center items-center flex">
+                  <h1 className="  text-white text-sm ">
+                    <span className="   font-semibold">${price}</span>
+                    <span> per night</span>
+                  </h1>
+                </div>
+              </Link>
             </div>
           );
         })}

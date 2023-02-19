@@ -40,7 +40,7 @@ const Login = () => {
       })
       .catch((err) => toast.error(`${err.message}`));
   };
-  const handleRedrict = () => {
+  const handleGoogleSingIn = () => {
     googleAccount().then((res) => {
       console.log(res.user);
       const users = res.user;
@@ -118,7 +118,7 @@ const Login = () => {
 
         <div className=" my-4 mx-4 justify-center flex">
           <button
-            onClick={() => handleRedrict()}
+            onClick={() => handleGoogleSingIn()}
             className=" btn  text-primary w-80"
           >
             <FcGoogle size={30} /> continue with google

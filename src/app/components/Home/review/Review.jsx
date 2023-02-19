@@ -36,108 +36,42 @@ const Review = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <div className=" h-96   m-8   py-4">
-            <div className=" grid grid-cols-2 gap-4  ">
-              <div className="     relative      justify-center flex items-center">
-                <img
-                  src={images.client}
-                  className="   relative    h-60 w-32 md:h-80  md:w-60 rounded-br-[120px]  "
-                  alt=""
-                />
-                <div className="  border-4   absolute  h-60 w-32 md:h-80  md:w-60 rounded-br-[120px]     top-4  right-4     md:right-40 -z-10     "></div>
-              </div>
-              <div className=" ">
-                <h2 className="  text-accent md:text-4xl font-semibold text-xl">
-                  Happy Family
-                </h2>
-                <div className="  flex   my-8">
-                  <AiFillStar size={20} className=" text-yellow-400" />
-                  <AiFillStar size={20} className=" text-yellow-400" />
-                  <AiFillStar size={20} className=" text-yellow-400" />
-                  <AiFillStar size={20} className=" text-yellow-400" />
-                  <AiFillStar size={20} className=" text-yellow-400" />
+        {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'].map((item) => (
+          <SwiperSlide>
+            <div className=" h-96   m-8   py-4">
+              <div className=" grid grid-cols-2 gap-4  ">
+                <div className="     relative      justify-center flex items-center">
+                  <img
+                    src={images.client}
+                    className="   relative   object-cover  h-60 w-32 md:h-80 rounded-md  md:w-60 rounded-br-[120px]  "
+                    alt=""
+                  />
+                  <div className="  border-4   absolute  h-60 w-32 md:h-80  md:w-60 rounded-br-[120px]   lg:right-40 rounded-md xl:right-60    md:-top-8 -top-2  right-12     md:right-20 -z-10     "></div>
                 </div>
-                <p className="  text-accent md:text-sm text-xs">
-                  What a great trip with my family and I should try again next
-                  time soon ...
-                </p>
-                <p className=" text-info my-4">Angga, Product Designer</p>
-                <button className=" btn bg-primary hover:bg-primary border-none text-white btn-sm md:btn-md">
-                  Read Their Story
-                </button>
+                <div className=" ">
+                  <h2 className="  text-accent md:text-4xl font-semibold text-xl">
+                    Happy Family
+                  </h2>
+                  <div className="  flex   my-8">
+                    <AiFillStar size={20} className=" text-yellow-400" />
+                    <AiFillStar size={20} className=" text-yellow-400" />
+                    <AiFillStar size={20} className=" text-yellow-400" />
+                    <AiFillStar size={20} className=" text-yellow-400" />
+                    <AiFillStar size={20} className=" text-yellow-400" />
+                  </div>
+                  <p className="  text-accent md:text-sm text-xs">
+                    What a great trip with my family and I should try again next
+                    time soon ...
+                  </p>
+                  <p className=" text-info my-4">Angga, Product Designer</p>
+                  <button className=" btn bg-primary hover:bg-primary border-none text-white btn-sm md:btn-md">
+                    Read Their Story
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className=" h-96   m-8   py-4">
-            <div className=" grid grid-cols-2 gap-4  ">
-              <div className="     relative      justify-center flex items-center">
-                <img
-                  src={images.client}
-                  className="   relative    h-60 w-32 md:h-80  md:w-60 rounded-br-[120px]  "
-                  alt=""
-                />
-                <div className="  border-4   absolute  h-60 w-32 md:h-80  md:w-60 rounded-br-[120px]     top-4  right-4     md:right-40 -z-10     "></div>
-              </div>
-              <div className=" ">
-                <h2 className="  text-accent md:text-4xl font-semibold text-xl">
-                  Happy Family
-                </h2>
-                <div className="  flex   my-8">
-                  <AiFillStar size={20} className=" text-yellow-400" />
-                  <AiFillStar size={20} className=" text-yellow-400" />
-                  <AiFillStar size={20} className=" text-yellow-400" />
-                  <AiFillStar size={20} className=" text-yellow-400" />
-                  <AiFillStar size={20} className=" text-yellow-400" />
-                </div>
-                <p className="  text-accent md:text-sm text-xs">
-                  What a great trip with my family and I should try again next
-                  time soon ...
-                </p>
-                <p className=" text-info my-4">Angga, Product Designer</p>
-                <button className=" btn bg-primary hover:bg-primary border-none text-white btn-sm md:btn-md">
-                  Read Their Story
-                </button>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className=" h-96   m-8   py-4">
-            <div className=" grid grid-cols-2 gap-4  ">
-              <div className="     relative      justify-center flex items-center">
-                <img
-                  src={images.client}
-                  className="   relative    h-60 w-32 md:h-80  md:w-60 rounded-br-[120px]  "
-                  alt=""
-                />
-                <div className="  border-4   absolute  h-60 w-32 md:h-80  md:w-60 rounded-br-[120px]     top-4  right-4     md:right-40 -z-10     "></div>
-              </div>
-              <div className=" ">
-                <h2 className="  text-accent md:text-4xl font-semibold text-xl">
-                  Happy Family
-                </h2>
-                <div className="  flex   my-8">
-                  <AiFillStar size={20} className=" text-yellow-400" />
-                  <AiFillStar size={20} className=" text-yellow-400" />
-                  <AiFillStar size={20} className=" text-yellow-400" />
-                  <AiFillStar size={20} className=" text-yellow-400" />
-                  <AiFillStar size={20} className=" text-yellow-400" />
-                </div>
-                <p className="  text-accent md:text-sm text-xs">
-                  What a great trip with my family and I should try again next
-                  time soon ...
-                </p>
-                <p className=" text-info my-4">Angga, Product Designer</p>
-                <button className=" btn bg-primary hover:bg-primary border-none text-white btn-sm md:btn-md">
-                  Read Their Story
-                </button>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

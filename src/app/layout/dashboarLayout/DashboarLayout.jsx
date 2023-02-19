@@ -1,13 +1,16 @@
 import React from 'react';
 import { HiMenu } from 'react-icons/hi';
+import { Outlet } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Navbar from '../../shared/navbar/Navbar';
 const DashboarLayout = () => {
   return (
     <div className="drawer">
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content">
+      <div className="drawer-content bg-[#F1F5F9]">
         <Navbar />
+
+        <Outlet />
       </div>
       <div className="drawer-side">
         <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
@@ -19,15 +22,27 @@ const DashboarLayout = () => {
             <span className=" text-primary  ">Stay</span>
             <span>cation</span>
           </Link>
-          <li>
-            <a>Dashbord</a>
-          </li>
-          <li>
-            <a>AdminDashboard</a>
-          </li>
-          <li>
-            <a>Sidebar Item 2</a>
-          </li>
+          <Link to={'/dashboard'}>
+            <li>
+              <a>Dashbord</a>
+            </li>
+          </Link>
+          <Link to="/dashboard/admin-dashboard">
+            <li>
+              <a>AdminDashboard</a>
+            </li>
+          </Link>
+
+          <Link to="/dashboard/user-review">
+            <li>
+              <a>Review</a>
+            </li>
+          </Link>
+          <Link to="/dashboard/add-services">
+            <li>
+              <a>add Services</a>
+            </li>
+          </Link>
         </ul>
       </div>
     </div>

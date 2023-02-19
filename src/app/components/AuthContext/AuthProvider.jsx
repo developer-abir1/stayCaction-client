@@ -13,9 +13,11 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
+
 import { useEffect } from 'react';
 
 export const AuthContext = createContext();
+
 const AuthProvider = ({ children }) => {
   const [bookingInfo, setBookingInfo] = useState({});
   const [loading, setLoading] = useState(true);
